@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: 17px;
+    border-radius:3px ;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    -webkit-border-radius:3px ;
+    -moz-border-radius:3px ;
+    -ms-border-radius:3px ;
+    -o-border-radius:3px ;
+    
+   
+}
+
+
+label.logo{
+    color:brown;
+    font-size: 35px;
+padding: 0 100px;
+    line-height:80px;
+    padding: 100px;
+    Font-weight:bold;
+}
+
+
+

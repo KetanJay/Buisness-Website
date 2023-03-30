@@ -1,0 +1,64 @@
+Nav{
+    background-color: bisque;
+    height: 120px;
+    width: 1500px;
+    margin: auto;
+    padding: 10px; 
+}
+h3{
+ background-color: coral;
+margin: 2px;
+border: 2px solid red;
+padding: 2px;
+color: rgb(1, 0, 0);
+text-align: center;
+font-family: 'Times New Roman', Times, serif;
+font-size: 25px;
+}
+
+.logo{
+    position: absolute;
+    height: 120px;
+    left: 15px;
+    width: 150px;
+    padding-top: 10px;
+    margin-bottom:auto ;
+    margin-top: auto;
+}
+
+footer {
+    color: rgb(6, 0, 7);
+    padding: 10rem;
+    text-align: center;
+    margin-top: 300px;   
+}
+
+.menu{
+    float: center;
+    display: flex;
+    line-height: 80px;
+    align-items: center;
+    list-style-type: none;
+    text-decoration:underline;    
+    padding: 2rem 7%;
+    position: absolute;
+    left: 20%;
+    right: 10%;;
+    justify-content: space-between;
+    
+}
+body {
+background-image: url(./img/Just\ dial.jpg);
+background-size: 600px;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+
+@media (max-width : 767.98px) {
+    .color-overlay {
+        min-height: 30vh;
+        font-size: 55%;
+}
+    
+    }

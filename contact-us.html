@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-us</title>
+    <link rel="icon" type="image/x-icon" href="./img/logo.png"trap>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+Nav{
+    background-color: ;
+    
+    height: 120px;
+    max-width: 100%;
+    margin: auto;
+    padding: 10px; 
+    text-transform: capitalize;
+}
+
+.logo{
+    position: absolute;
+    height: 120px;
+    left: 15px;
+    width: 150px;
+    padding-top: 10px;
+    margin-bottom:auto ;
+    margin-top: auto;
+}
+
+.menu{
+    
+    float: center;
+    display: flex;
+    line-height: 80px;
+    align-items: center;
+    list-style-type: none;
+    text-decoration:none;    
+    padding: 2rem 7%;
+    position: absolute;
+    left: 20%;
+    right: 10%;;
+    justify-content: space-between;
+    
+    
+}
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px bold;
+    
+}
+a:hover {
+    background-color: gray;
+  }
+
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  
+}
+
+.card {
+  background-color: #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 3px solid #030303;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 15%;
+}
+
+.left {
+  width: 25vw;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.left img {
+  width: inherit;
+  object-fit: cover;
+  transform: scale(0.9);
+  
+}
+
+.right .contact {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.form, .address {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 0;
+}
+
+.form input, textarea {
+  width: 100%;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #000000;
+  padding: 10px 0;
+  margin: 5px 0;
+}
+
+.usersubmit input {
+  background-color: #f25;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  width: min-content;
+  padding: 15px;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.usersubmit input:hover {
+  background-color: #f45;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h4 {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 700px) {
+  .card {
+    flex-direction: column;
+  }
+  
+  .left {
+    width: 60vw;
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .container {
+    overflow: hidden;
+  }
+  .left {
+    height: 20vh;
+  }
+  .contact {
+    flex-direction: column;
+  }
+}
+body{
+  background-color: #ddd;
+  overflow-x: hidden;
+overflow-y: hidden;
+
+}
+</style>
+</head>
+
+
+
+
+<body>
+<div class="logo img">
+  <a href="./Home.html">
+  <img src="./img/logo.png" class="logo"  >
+</a>
+</div>
+  <div class="icon-header">
+      <div id="menu bar" class="fas fa- bars"></div>
+      <i class='fas fa-bars'></i>
+      
+  </div>
+  
+<nav >
+     
+     <div class="menu">
+      <a href="./Home.html"> Home </a>
+    <a href="./service.html"> Service </a>
+    <a href="./Our-work.html"> Our Work </a>
+    <a href="./About.html"> About </a>
+    <a href="./contact-us.html"> Contact us </a>
+    
+    
+ </div>
+ </nav>
+
+
+    <div class="container">
+        <div class="card">
+          <div class="left">
+            <img src="./img/logo.png">
+          </div>
+          <div class="right">
+            <h2>Contact Us</h2>
+            <div class="contact">
+              <div class="form-container">
+                <form class="form">
+                  <form onsubmit="SendEmail(); reset(); return false; ">
+                  <div class="username">
+                    <input type="text" placeholder="Enter your Name">
+                  </div>
+                  <div class="useremail">
+                    <input type="email" placeholder="Enter your email" required>
+                    <label for="phone"><input type="number" id="phone" placeholder="Enter your Phone number"> </label>
+                  </div>
+                  <div class="usermessage">
+                    <textarea placeholder="How can I assist you ?" required></textarea>
+                  </div>
+                  <div class="usersubmit">
+                    <input type="submit" value="Submit">
+                  </div>
+                </form>
+              </form>
+              </div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
+    <script >
+function sendEmail(){
+Email.send({
+  Host : "smtp.gmail.com" ,
+  Username  : "ketanjaysingpure@gmail.com",
+  Password  : "Ketan@9673528064", ,
+  To : 'ketanjaysingpure@rediffmail.com' ,
+  From : document.getElementById("email").value ,
+  Subject : "New Contact-Us Form Enquiry",
+  Body : "Name:  "  +  document.getElementById("Name").value
+       + "<br> Email :  " + document.getElementById("email").value
+       + "<br> Phone :  " + document.getElementById("phone").value
+       + "<br> message :  " + document.getElementById("message").value
+
+}).then(
+ message => alert("message sent succesfully")
+);
+}
+
+</script>
+
+</body>
+</html>

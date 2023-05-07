@@ -1,20 +1,457 @@
-Nav{
-    background-color: bisque;
-    height: 120px;
-    width: 1500px;
-    margin: auto;
-    padding: 10px; 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+
+<!--Background CSS-->
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+path {
+  stroke: #000000;
+  fill: #000000;
+}
+.page-wrapper {
+      overflow: hidden;
+}
+
+.sky {
+  background: linear-gradient(to bottom, #000508 0%, #163C52 25%, #4F4F47 40%, #C5752D 53%, #B7490F 85%, #2F1107 100%);
+  width: 100%;
+  height: 75vh;
+
+  .component-wrapper {
+    position: relative;
+  }
+  .sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 45%;
+    left: 20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffe483 0%, #ffc700 10%, #ff8117 11%, #f5740300 35%, #f5740300 100%);
+  }
+  .svg-image {
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80%;
+    max-height: 75vh;
+
+
+  }
+  .background-left {
+    width: 60%;
+    margin-left: -36px;
+    transform: scaleX(-1);
+    bottom: -15px;
+  }
+  .background-right {
+    margin-right: 0;
+  }
+  .background {
+    width: 100%;
+    margin: 0 -20px;
+    margin-bottom: -10px;
+  }
+  .background-grid {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    top: 0;
+    align-items: flex-end;
+  }
+  .limit {
+    max-height: 75vh;
+    max-width: 100vh;
+    width: calc((768/1024) * 107%);
+    bottom: 0;
+  }
+  .light-wrapper, .weld-wrapper, .spark-wrapper {
+    position: relative;
+    padding-bottom: calc((768/1024) * 100%);
+    height: 0;
+
+  }
+}
+
+.ground {
+  background: black;
+  width: 100%;
+  height: 25vh;
+}
+
+.svg-components {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 75vh;
+  margin: auto;
+  margin-left: -10%;
+
+ .svg{
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    left: 0;
+    bottom: -7px;
+    right: 0;
+    margin: auto;
+    max-height: calc(80vw / 1.33);
+    margin-right: 0;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.light-bar {
+  transform: rotate(4deg) translateX(15px);
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  position: absolute;
+  height: 100%;
+  bottom: -18%;
+}
+
+.light {
+  &.red {
+    visibility: visible;
+    opacity: 1;
+    width: 1px;
+    height: 1px;
+    box-shadow: 0 0 5px 5px #ff1818;
+    background-color: #ff1818;
+    animation: strobe 3s steps(2, start) infinite;
+    animation-direction: alternate;
+  }
+  
+  &.top {
+    position: absolute;
+    top: 9%;
+    right: 29%;
+  }
+
+}
+.material {
+  &.hidden {
+    visibility: hidden;
+  }
+}
+  path {
+  animation: move-trolly-components 45s infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  }
+}
+.hook {  
+  animation: move-trolly-components 45s infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+.cable {
+  stroke-width: 1;
+  stroke: black;
+  stroke-dasharray: 485;
+  stroke-dashoffset: 485;
+  animation:animation: move-cable 45s infinite,
+  move-trolly-components 45s infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  -webkit-animation:move-trolly-components 45s  infinite;;
+}
+.material,
+.trolly-movement, 
+.cable,
+.hook {
+  --transX1: -55%;
+  --transX2: -50%;
+  --transX3: -5%;
+  --transX4: -5%;
+
+  --transY1: -6.5%;
+  --transY2: -6.5%;
+  --transY3: 0%;
+  --transY4: 0%;
+
+  --scale1: 1.1;
+  --scale2: 1;
+}
+.hook,
+.material {
+  --transY1: 55%;
+  --transY2: -6.5%;
+  --transY3: 0%;
+  --transY4: 55%;
+}
+.trolly-movement {
+  animation: move-trolly-components 45s  infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  -webkit-animation: move-trolly-components 45s  infinite;
+}
+.spark {
+  
+  position: relative;
+  width: 10%;
+  margin-top: -20px;
+  animation-timing-function: linear;
+}
+
+.weld-container, .spark-container{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    &:first-child {
+      left: 81.2%;
+      top: 50.2%;
+    }
+    &:last-child {
+      left: 52%;
+      top: 71.9%;
+    }
+
+}
+
+.weld {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: welding 8s infinite;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%, 
+    #DDEDFF 25%, 
+    #e1ecf9 35%, 
+    #cee4ff 40%,
+    rgb(186,218,255) 50%, 
+    rgba(186,218,255, .4) 80%, 
+    rgba(186,218,255, .1) 100%
+  );
+  
+}
+.particle{
+  opacity: 0;
+  position: absolute;
+  background-color:rgba(255, 251, 209, 1);
+  
+  & .negative-X {
+    animation: sparks-neg-X .7s infinite,
+               welding 8s infinite;
+  }
+  &.positive-X{
+    animation: sparks-pos-X .7s infinite,
+               welding 8s infinite;
+  }
+  
+}
+.
+@keyframes welding {
+  0%  {opacity: 0;}
+  1%  {opacity: 1;}
+  2%  {opacity: 0;}
+  3%  {opacity: 1;}
+  4%  {opacity: 0;}
+  5%  {opacity: 1;}
+  11% {opacity: 1;}
+  12% {opacity: 0;}
+  13% {opacity: 1;}
+  59% {opacity: 1;}
+  60% {opacity: 0;}
+  100%{opacity: 0;}
+}
+@keyframes sparks-neg-X {
+  0%{ opacity: 1; transform:translateY(0%)}
+  95% {
+    opacity: 1;
+  }
+  100%{ opacity: 0;transform:translateY(1500%) translateX(-5px)}
+}
+@keyframes sparks-pos-X {
+  0%{ opacity: 1;transform:translateY(0%) rotate(0deg);}
+  93% {opacity: 1;}
+  100%{ opacity: 0;transform:translateY(1500%) translateX(5px);}
+}
+@keyframes strobe {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes move-trolly-components {
+  0%   { transform: translateX(var(--transX1)) translateY(var(--transY1)) scale(var(--scale1));}
+  25%  { transform: translateX(var(--transX2)) translateY(var(--transY2)) scale(var(--scale1)); }
+  75%  { transform: translateX(var(--transX3))  translateY(var(--transY3)) scale(var(--scale2));}
+  100% { transform: translateX(var(--transX4))  translateY(var(--transY4)) scale(var(--scale2));}
+}
+
+@keyframes move-cable {
+  0% { stroke-dashoffset: 970;}
+  25% { stroke-dashoffset: 543;}
+  75% { stroke-dashoffset: 543;}
+  100% { stroke-dashoffset: 970;}
+}
+
+
+
+           /*Star Rating*/
+
+body {
+    background-color: #111;
+ 
+}
+
+.stars{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    height: 100vh;
+   
+}
+
+.stars__star-icon{
+    stroke:#ed0606;
+    stroke-width: 2px;
+    fill: transparent;
+    transition: .1s all;
+}
+
+.stars__star{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.stars__checkbox{
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.stars__star:hover > .stars__star-icon{
+    fill:  gold; 
+}
+
+.stars__star:hover ~ .stars__star > .stars__star-icon {
+    fill:  gold;
+}
+
+.stars__checkbox:checked + .stars__star > .stars__star-icon {
+    fill:  gold;
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+    fill:  gold;
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+    fill:  gold; 
+   
+}
+.stars .result{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -30px;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'poppins',sans-serif;
+  display: none;
+}
+
+.stars :not(:checked)>label:hover, 
+.stars :not(:checked)>label:hover ~ label{
+  color: gold;
+}
+
+.stars input:checked >  label:hover,
+.stars input:checked >  label:hover ~ label {
+color: gold;
+text-shadow: 1px,1px, gold;
+}
+.stars input:checked ~ .result{
+  display: block;
+}
+
+.stars #five :checked ~ .result:before {
+  content: "Good";
+}
+
+.stars #four :checked ~ .result:before {
+  content: "Good";
+}
+
+.stars #Three :checked ~ .result:before {
+  content: "Good";
+}
+
+
+.stars #Two :checked ~ .result:before {
+  content: "Good";
+}
+
+.stars #One :checked ~ .result:before {
+  content: "Good";
+}
+
+Nav{
+    background-color:#010a10;
+    height: 90px;
+    max-width: 100%;
+    margin: auto;
+   padding-top: 0%;
+   padding-bottom: 0%;
+    text-transform: capitalize;
+    margin-top: 0px ;
+    margin-bottom: 0%;
+    
+}
+
 h3{
- background-color: coral;
-margin: 2px;
-border: 2px solid red;
-padding: 2px;
-color: rgb(1, 0, 0);
+    background-color:#010a10;
+margin: 0px;
+margin-bottom: 0%;
+padding: 5px;
+color: rgb(238, 238, 238);
 text-align: center;
 font-family: 'Times New Roman', Times, serif;
-font-size: 25px;
+font-size: 35px;
+padding-bottom: 0px;
+
 }
+
+
+
 
 .logo{
     position: absolute;
@@ -31,34 +468,97 @@ footer {
     padding: 10rem;
     text-align: center;
     margin-top: 300px;   
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+
 }
 
+
 .menu{
+    
     float: center;
     display: flex;
     line-height: 80px;
     align-items: center;
     list-style-type: none;
-    text-decoration:underline;    
+    text-decoration:none;    
     padding: 2rem 7%;
     position: absolute;
     left: 20%;
     right: 10%;;
     justify-content: space-between;
+    margin-top: 0px;
     
 }
-body {
-background-image: url(./img/Just\ dial.jpg);
-background-size: 600px;
-background-repeat: no-repeat;
-background-position: center;
+.menu a {
+    text-decoration: none;
+    color: rgb(251, 244, 244);
+    font-size: 20px bold;
+    justify-content: space-between;
+}
+a:hover {
+    background-color: gray;
+    
+    
+  }
+  
+
+.background-image {
+  align-items: center;
+margin-left: 30%;
+margin-right: 40%;
+padding-top: 20px;
+height: 700px;
+
 }
 
+body{
+    background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+    overflow-x: hidden;
+   
+    
+}
 
-/* @media (max-width : 767.98px) {
+.img {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw ;
+    margin-top: 2rem;
+     margin-bottom: 0px;
+     padding-bottom: 0px;
+     
+}
+
+        
+
+@media (max-width : 767.98px) {
     .color-overlay {
         min-height: 30vh;
         font-size: 55%;
 }
     
-    } */
+    }
+
+html,body{
+          width: 100%;
+          height: 10%;
+}  
+      
+.stars{
+  margin-top: 0%;
+  margin-bottom: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  height: 160px;
+}
+
+    <!--Background CSS-->
+ 
+
+
+
